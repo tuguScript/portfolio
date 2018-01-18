@@ -20,7 +20,12 @@
     "serve-favicon": "~2.4.5"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "clean-webpack-plugin": "^0.1.17",
     "node-sass": "^4.7.2",
-    "nodemon": "^1.14.11"
+    "nodemon": "^1.14.11",
+    "path": "^0.12.7"
   }
 }
