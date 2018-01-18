@@ -1,3 +1,20 @@
+import { featuredArticles } from "./data.js";
+
+console.log(featuredArticles);
+
+featuredArticles.map((post, i) => {
+    console.log(i);
+    
+    const item = `<article class="card"> 
+    <figure> <img src="${post.img}" alt="" srcset=""></figure>
+    <div class="card-description">
+    <a href="/post/${post.id}">
+    <h2>${post.title}</h2>
+    </a><h3>${post.category}</h3></div></article>`
+    
+    document.getElementById('article-section').innerHTML += item;
+})
+
 let menuToggler = document.getElementById('menuToggler')
 let menuTogglerLabel = document.getElementById('menuTogglerLabel');
 let sidebar = document.getElementById('sidebar');
@@ -20,4 +37,5 @@ menuToggler.addEventListener('change', function() {
     }
   }  
 });
+
 
