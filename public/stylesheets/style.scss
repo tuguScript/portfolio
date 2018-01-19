@@ -42,7 +42,7 @@ $divider-color:        #BDBDBD;
 --toggler-line-size: calc(var(--toggler-size) / (var(--toggler-line-number) + var(--toggler-line-number) - 1));
 --toggler-offset-left: 10px;
 --toggler-offset-top: 10px;
---toggler-color: $primary-color;
+--toggler-color: $primary-color-text;
 --toggler-color-hover: $primary-color-text;
 }
 
@@ -59,7 +59,7 @@ box-sizing: border-box;
 // styling
 html {
 font-family: -apple-system, BlinkMacSystemFont,
-"Segoe UI", "Roboto", "Oxygen",
+"Roboto", "Oxygen",
 "Ubuntu", "Cantarell", "Fira Sans",
 "Droid Sans", "Helvetica Neue", sans-serif;
 @include fluid-type(font-size, 20em, 75em, .8rem, 1.2rem);
@@ -67,7 +67,7 @@ font-family: -apple-system, BlinkMacSystemFont,
 
 .wrapper {
 background: #FAFAFA;
-display: flex;
+// display: flex;
 }
 
 .sidebar,
@@ -76,16 +76,17 @@ transition: all .25s ease-out;
 }
 
 .sidebar {
-width: var(--sidebar-width);
-transform: translateX(calc(var(--sidebar-width) * -1));
-background: linear-gradient(to bottom right, $primary-color-dark, $primary-color);
-display: flex;
-justify-content: center;
-align-items: center;
-position: fixed;
-top: 0;
-height: 100vh;
-opacity: .5;
+  z-index: 3;
+  width: var(--sidebar-width);
+  transform: translateX(calc(var(--sidebar-width) * -1));
+  background: linear-gradient(to bottom right, $primary-color-dark, $primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  opacity: .5;
 }
 
 .menu {
@@ -116,7 +117,7 @@ position: fixed;
 top: var(--toggler-offset-top);
 left: var(--toggler-offset-left);
 cursor: pointer;
-z-index: 1;
+z-index: 4;
 }
 
 .menu-toggler__line {
@@ -196,7 +197,7 @@ background: #f7f7f7;
 
 .content {
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
   display: grid;
   grid-template-rows: 580px 1fr 450px;
   grid-template-columns: 1fr 1fr 1fr;
@@ -204,6 +205,10 @@ background: #f7f7f7;
     "header header header"
     "section section section"
     "footer footer footer";
+  height: 1500px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 510px;
 }
 
 .header-container {
@@ -212,7 +217,7 @@ background: #f7f7f7;
 }
 
 header {
-	background: #707070;
+	background: $primary-color;
 	grid-area: header;
 }
 
@@ -222,7 +227,7 @@ section {
   grid-area: section;
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
-  grid-template-rows: 503px 503px;
+  grid-template-rows: 1fr 1fr;
   grid-gap: 20px;
   article {
     // width: 453px;
@@ -232,6 +237,7 @@ section {
     figure {
       height: 453px;
       img {
+        object-fit: cover;
         width: 100%;
         height: 100%;
       }
@@ -259,8 +265,108 @@ section {
   }
 }
 
+// footer {
+// 	background: #707070;
+// 	grid-area: footer;
+// }
+
+
+
 footer {
-	background: #707070;
-	grid-area: footer;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 350px;  
+  padding-left: 50px;
+  background: $primary-color-dark;
+  color: $primary-color-text;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  a {
+    font-size: 60px;	
+    line-height: 68px;
+  };
+  button {
+    margin-top: 20px;
+    height: 36px;
+    width: 176px;
+    background-color: $accent-color;
+    a {
+        height: 16px;
+        width: 115px;
+        color: rgba(0,0,0,0.87);
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+    }
+  }
 }
 
+.post {
+  main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 580px 1fr;
+    header {
+      background-color: #FFFFFF;
+      grid-column: 1 / 5;
+      grid-row: 1 / 2;
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .container {
+      padding-top: 20px;
+      grid-column: 2/4;
+      grid-row: 2/3;
+      .title {
+        color: $primary-text-color;
+        font-family: Roboto;
+        font-size: 36px;
+        font-weight: bold;
+        line-height: 42px;
+        text-align: justify;
+      }
+      .date {
+        color: $primary-text-color;
+        font-family: Roboto;
+        font-size: 36px;
+        font-weight: 300;
+        line-height: 42px;
+        text-align: justify;
+        padding: 20px 0px
+      }
+      .post-content {
+        font-weight: 300;
+        padding: 20px 0px;
+        color: #000000;
+        font-family: Roboto;
+        font-size: 25px;
+        line-height: 36px;
+        // text-align: justify;
+      }
+    }
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    background: #FFFFFF;
+    height: 100%;
+    margin-bottom: 350px;
+    box-shadow: 3px 2px 2px 0px rgba(51,51,51,0.5);
+  }
+  
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 350px;  
+    padding-left: 50px;
+    background: #4B466F;
+    font-size: 100px;
+    color: $primary-color-text;
+  }
+}
