@@ -1,43 +1,52 @@
-import { featuredArticles } from "./data.js";
-
-
+import { featuredArticles } from './data.js'
 
 window.location.pathname == '/' ? featuredArticles.map((post, i) => {
-    
+
   const item = `<article class="card"> 
   <figure> <img src="${post.img}" alt="" srcset=""></figure>
   <div class="card-description">
   <a href="/post/${post.id}">
   <h2>${post.title}</h2>
   </a><h3>${post.category}</h3></div></article>`
-  
-  document.getElementById('article-section').innerHTML += item;
-}) : null;
+
+  document.getElementById('article-section').innerHTML += item
+}) : null
+
+if (window.location.pathname.indexOf('post') === 1) {
+  let path = window.location.pathname
+  let id = path.slice(-1)
+  fetchArticle(id)
+} else {
+  null
+}
+
+function fetchArticle (id) {
+  var article = featuredArticles[--id]
+  document.getElementById('title').innerHTML = article.title
+  document.getElementById('date').innerHTML = article.date
+  document.getElementById('post-content').innerHTML = article.content
+  document.getElementById('img').src = article.img
+}
 
 let menuToggler = document.getElementById('menuToggler')
-let menuTogglerLabel = document.getElementById('menuTogglerLabel');
-let sidebar = document.getElementById('sidebar');
-let menuItems = document.getElementsByClassName('menu__link');
+let menuTogglerLabel = document.getElementById('menuTogglerLabel')
+let sidebar = document.getElementById('sidebar')
+let menuItems = document.getElementsByClassName('menu__link')
 
-menuToggler.addEventListener('change', function() {
-  if(menuToggler.checked) {
-    menuTogglerLabel.setAttribute('aria-pressed', 'true');
-    sidebar.setAttribute('aria-hidden', 'false');    
+menuToggler.addEventListener('change', function () {
+  if (menuToggler.checked) {
+    menuTogglerLabel.setAttribute('aria-pressed', 'true')
+    sidebar.setAttribute('aria-hidden', 'false')
   } else {
-    menuTogglerLabel.setAttribute('aria-pressed', 'false');
-    sidebar.setAttribute('aria-hidden', 'true');
+    menuTogglerLabel.setAttribute('aria-pressed', 'false')
+    sidebar.setAttribute('aria-hidden', 'true')
   }
-  
-  for(let menuItem of menuItems) {
-    if(menuToggler.checked) {
-      menuItem.setAttribute('tabindex', '0');
+
+  for (let menuItem of menuItems) {
+    if (menuToggler.checked) {
+      menuItem.setAttribute('tabindex', '0')
     } else {
-      menuItem.setAttribute('tabindex', '-1');
+      menuItem.setAttribute('tabindex', '-1')
     }
-  }  
-});
-
-
-function hi() {
-  console.log('loaded');
-}
+  }
+})
