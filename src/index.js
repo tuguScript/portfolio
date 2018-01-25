@@ -1,4 +1,10 @@
+// TODO:
+// - contact tovchluur darahad mail yawuulah ruu usreh
+
+
+
 import { featuredArticles } from './data.js'
+import Parallax from 'parallax-js'
 
 window.location.pathname == '/' ? featuredArticles.map((post, i) => {
 
@@ -50,3 +56,10 @@ menuToggler.addEventListener('change', function () {
     }
   }
 })
+
+var scene = document.getElementById('scene');
+var parallaxInstance = new Parallax(scene, {
+  relativeInput: false
+});
+
+parallaxInstance.limit(false, 0.1)
