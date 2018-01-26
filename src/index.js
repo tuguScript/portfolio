@@ -1,6 +1,6 @@
 // TODO:
 // - contact tovchluur darahad mail yawuulah ruu usreh
-
+// huudas shiljihed lazy load hiih
 
 
 import { featuredArticles } from './data.js'
