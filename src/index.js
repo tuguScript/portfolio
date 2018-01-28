@@ -1,7 +1,6 @@
 // TODO:
 // - contact tovchluur darahad mail yawuulah ruu usreh
-
-
+// huudas shiljihed lazy load hiih
 
 import { featuredArticles } from './data.js'
 import Parallax from 'parallax-js'
@@ -16,7 +15,20 @@ window.location.pathname == '/' ? featuredArticles.map((post, i) => {
   </a><h3>${post.category}</h3></div></article>`
 
   document.getElementById('article-section').innerHTML += item
-}) : null
+}) : console.log(window.location.pathname);
+
+window.location.pathname == '/work' ? featuredArticles.map((post, i) => {
+
+  const item = `<article class="card"> 
+  <figure> <img src="${post.img}" alt="" srcset=""></figure>
+  <div class="card-description">
+  <a href="/post/${post.id}">
+  <h2>${post.title}</h2>
+  </a><h3>${post.category}</h3></div></article>`
+
+  document.getElementById('article-section').innerHTML += item
+}) : console.log(window.location.pathname);
+
 
 if (window.location.pathname.indexOf('post') === 1) {
   let path = window.location.pathname
