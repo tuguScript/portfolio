@@ -2,12 +2,19 @@ extends layout
 
 block content
   div(class="content")
-    header
-      a hero
+    header(id="scene")
+      div(data-depth="0.1")
+        div
+          h1 Hi, I'm Tugi.
+          p a web developer.
+      //- img(src="/images/back.png", alt="", srcset="")
+      //- img(src="/images/dolphin.png", data-depth="0.6" )
+      //- img(src="/images/man.png", data-depth="0.1")
+      //- img(src="/images/birds.png", data-depth="0.4")
     section(id="article-section")
   footer
     div
       a Who is this guy?
       div
         button 
-          a LET’S FIND OUT 
+          a(href="/profile") LET’S FIND OUT 
