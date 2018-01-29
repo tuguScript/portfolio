@@ -63,6 +63,7 @@ font-family: -apple-system, BlinkMacSystemFont,
 "Ubuntu", "Cantarell", "Fira Sans",
 "Droid Sans", "Helvetica Neue", sans-serif;
 @include fluid-type(font-size, 20em, 75em, .8rem, 1.2rem);
+overflow-x: hidden;
 }
 
 .wrapper {
@@ -219,6 +220,7 @@ background: #f7f7f7;
     grid-template-rows: 1fr 1fr;
     grid-gap: 20px;
     article {
+      cursor: pointer;
       // width: 453px;
       // height: 503px;
       background-color: rgb(255, 255, 255);

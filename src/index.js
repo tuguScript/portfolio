@@ -5,17 +5,28 @@
 import { featuredArticles } from './data.js'
 import Parallax from 'parallax-js'
 
-window.location.pathname == '/' ? featuredArticles.map((post, i) => {
 
-  const item = `<article class="card"> 
-  <figure> <img src="${post.img}" alt="" srcset=""></figure>
-  <div class="card-description">
-  <a href="/post/${post.id}">
-  <h2>${post.title}</h2>
-  </a><h3>${post.category}</h3></div></article>`
 
-  document.getElementById('article-section').innerHTML += item
-}) : console.log(window.location.pathname);
+
+const iterateArticles = () => {
+  let myFunction = () => {
+    alert('cmon')
+  }
+  featuredArticles.map((post, i) => {
+
+    const item = `
+      <article class="card" id="card" onclick="myFunction(${post.id})"> 
+      <figure> <img src="${post.img}" alt="" srcset=""></figure>
+      <div class="card-description">
+      <a href="/post/${post.id}">
+        <h2>${post.title}</h2>
+      </a><h3>${post.category}</h3></div></article>`
+  
+    document.getElementById('article-section').innerHTML += item
+  })
+}
+
+window.location.pathname == '/' ? iterateArticles() : console.log(window.location.pathname);
 
 window.location.pathname == '/work' ? featuredArticles.map((post, i) => {
 

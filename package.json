@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "./bin/watch-css",
+    "start": "node app.js",
+    "start-dev": "./bin/watch-css",
     "devstart": "nodemon ./bin/www",
     "build-css": "./bin/build-css",
     "watch-css": "./bin/watch-css"
@@ -22,6 +23,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "clean-webpack-plugin": "^0.1.17",
     "node-sass": "^4.7.2",

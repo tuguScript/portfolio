@@ -15,7 +15,8 @@
 
 html {
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-size: 0.8rem; }
+  font-size: 0.8rem;
+  overflow-x: hidden; }
   @media screen and (min-width: 20em) {
     html {
       font-size: calc(0.8rem + 0.4 * (100vw - 20em) / 55); } }
@@ -137,6 +138,7 @@ html {
     grid-template-rows: 1fr 1fr;
     grid-gap: 20px; }
     .content #article-section article {
+      cursor: pointer;
       background-color: white;
       transition: box-shadow 1s; }
       .content #article-section article figure {

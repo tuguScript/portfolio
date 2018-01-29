@@ -51,5 +51,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+if (process.env.NODE_ENV === 'production') {
+  app.listen(process.env.PORT, function () {
+    console.log('app runnning', );
+  })
+}
+
+
+
 module.exports = app;
 
